@@ -7,7 +7,6 @@ import Loading from "./Loading";
 import Error from "./Error";
 
 // used variables
-var Totaltours;
 var recentTour;
 const url = "https://course-api.com/react-tours-project";
 
@@ -16,7 +15,6 @@ const TourWrapper = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isRecent, setIsRecent] = useState(false);
-  const [recent, setRecent] = useState([]);
   const [data, setData] = useState([]);
 
   // function to remove the particular tour form the list
@@ -43,7 +41,6 @@ const TourWrapper = () => {
       var tours;
       if (response.status >= 200 && response.status <= 299) {
         tours = await response.json();
-        Totaltours = tours.length;
         setIsLoading(false);
         setData(tours);
       } else {
